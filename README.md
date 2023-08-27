@@ -68,8 +68,9 @@
 2. **Safe Picking**: Instead of stashing, try using `git cherry-pick` in different scenarios. What are the pros and cons compared to the stash-pop approach?
 3. **Undoing the Undo**: Let's say you didn't actually make a mistake. How would you undo the operations of `git reset HEAD~`?
 
-Hint:
-
-> ! Explore `git reflog` and `git reset HEAD@{x}`.
-
+<details> 
+  <summary>Hint</summary>
+   Explore `git reflog` and git reset `HEAD@{x}`
+</details>
+      
 **Happy Branching!**

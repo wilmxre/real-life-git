@@ -1,88 +1,55 @@
-## Kata: Mastering Git Rebasing
+## Rebasing with GitKraken
 
-### Objective:
+### 1. Granting Execute Permissions
 
-Learn to use `git rebase` to incorporate updates from the main branch into your feature branch seamlessly.
-
----
-
-### Scenario:
-
-You've been working on a feature branch for some time, and in the interim, the main branch has received several updates. Instead of merging the main branch into your feature branch (which would create a new merge commit), you want to rebase your branch. This means the new commits on the main branch will be the base for your feature branch changes.
-
----
-
-### Tasks:
-
-#### 1. Switch to Your Feature Branch:
-
-Ensure you are on your feature branch:
+Before you can run the script, you need to give it the necessary permissions.
 
 ```bash
-git checkout feature-branch-name
+chmod +x <setup>.sh
 ```
 
-#### 2. Start the Rebase:
+### 2. Running the Script
 
-Fetch the latest changes from the remote and rebase your feature branch onto the main branch:
+Execute the script to create the branches and commits as designed.
 
 ```bash
-git fetch origin or git pull <main branch>
-git rebase origin/main or git rebase <main branch>
+./<setup>.sh
 ```
 
-#### 3. Resolve Conflicts if They Appear:
+### 3. Rebasing with GitKraken
 
-During rebasing, conflicts might occur. If there's a conflict, Git will pause and allow you to fix those conflicts before continuing.
+Now that our branches and commits are prepared, it's time to handle the rebase in GitKraken.
 
-3.1. Open the files with conflicts and resolve them.
+#### 4.1 Launch GitKraken
 
-3.2. After resolving, mark the files as resolved:
+- Open GitKraken. If it's your first time, you might have to connect your repositories.
 
-```bash
-git add path/to/resolved-file
-```
+#### 4.2 Navigate to Your Repository
 
-3.3. Continue the rebase process:
+- If you haven't added your repository to GitKraken, do so by clicking on the folder icon on the top-left corner, then `Open a Repo`, and navigate to your repo directory.
 
-```bash
-git rebase --continue
-```
+#### 4.3 Initiate the Rebase
 
-#### 4. Complete the Rebase:
+1. In GitKraken's graph, you should see the branches `mega-base-branch` and `mega-feature-branch`.
+2. Ensure you've checked out `mega-feature-branch` by double-clicking it.
+3. Right-click on `mega-base-branch` and select the option `Rebase "mega-feature-branch" onto "mega-base-branch"`.
 
-Once all conflicts (if any) are resolved, and all commits have been applied, the rebase will finish.
+#### 4.4 Resolve Conflicts
 
-#### 5. Pushing Changes:
+- You will be immediately notified of the first conflict.
+  - Click on the conflicted file.
+  - Use GitKraken's visual tool to resolve the conflict, choosing which changes to keep.
+  - Save the resolved file.
+  - Mark the file as resolved in GitKraken.
+- Click on the `Continue Rebase` button in GitKraken.
 
-Since rebasing rewrites commit history, you'll need to force push your branch if you've previously pushed it to the remote:
+- Repeat the conflict resolution process for each of the 4-5 commits that have conflicts or squash the commits if the commits if you're encountering multiple conflicts in a row and want to simplify the process
 
-```bash
-git push origin feature-branch-name --force-with-lease
-```
+#### 4.5 Finalize the Rebase
 
-Using `--force-with-lease` is safer than `--force` as it ensures you don't overwrite work someone else might have pushed in the meantime.
+- Once all conflicts are resolved, the rebase will be complete.
+- You can now push your changes, but remember this changes the commit history. If collaborating with others, communicate before force pushing.
 
----
+## Conclusion
 
-### Notes:
-
-1. **Rebase vs. Merge**: Rebasing provides a cleaner commit history than merging in situations where you want to integrate changes from one branch into another. However, it rewrites commit history, so be cautious when using it on shared branches.
-
-2. **Safe Force Push**: `--force-with-lease` is a safer alternative to `--force`. It prevents overwriting commits on the remote branch by checking that the remote branch is in the state we expect.
-
-3. **Keeping Up-to-Date**: Regularly rebasing your feature branch onto the main branch ensures you're always working with the latest changes. This can prevent large, difficult-to-resolve conflicts later on.
-
----
-
-### Challenges:
-
-1. **Interactive Rebase**: Use `git rebase -i` to perform an interactive rebase. This allows you to edit, squash, or reorder commits. Can you squash two or more of your feature branch commits into a single commit?
-
-2. **Abort a Rebase**: Start a rebase, then intentionally create a conflict. How would you abort the rebase operation and return to the state before rebasing?
-
-3. **Rebase onto Different Branch**: Instead of rebasing onto the main branch, try rebasing your feature branch onto another branch. How does this change the commit history?
-
----
-
-**Rebase Wisely and Keep That Commit History Clean!**
+You've successfully run a script to set up a complex rebase scenario and have navigated through multiple conflicts using GitKraken's visual tools.

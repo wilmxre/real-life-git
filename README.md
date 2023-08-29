@@ -14,7 +14,23 @@ You've recently discovered a bug in your project, and you're unsure which commit
 
 ### Tasks:
 
-#### 1. Start Bisecting:
+#### 1. Granting Execute Permissions
+
+Before you can run the script, you need to give it the necessary permissions.
+
+```bash
+chmod +x <setup>.sh
+```
+
+#### 2. Running the Script
+
+Execute the script to create the commits as designed.
+
+```bash
+./<setup>.sh
+```
+
+#### 3. Start Bisecting:
 
 Begin the `git bisect` process:
 
@@ -22,7 +38,7 @@ Begin the `git bisect` process:
 git bisect start
 ```
 
-#### 2. Mark the Bad and Good Commits:
+#### 4. Mark the Bad and Good Commits:
 
 Let Git know a commit where the bug exists and a commit before the bug was introduced:
 
@@ -31,7 +47,7 @@ git bisect bad <commit-hash-with-bug>
 git bisect good <commit-hash-without-bug>
 ```
 
-#### 3. Test and Mark Commits:
+#### 5. Test and Mark Commits:
 
 Git will checkout a commit in the middle of the good and bad range. Test your project at this commit.
 
@@ -49,7 +65,7 @@ git bisect good
 
 Git will continue to narrow down the range until it identifies the first bad commit.
 
-#### 4. Finish Bisecting:
+#### 6. Finish Bisecting:
 
 Once Git identifies the problematic commit, end the bisect session:
 

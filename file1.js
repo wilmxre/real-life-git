@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-console.log('Content of file1.js');
-console.log('Updated content of file1.js');
-=======
-console.log('Feature content in file1.js');
->>>>>>> 0936202 (Made changes in feature branch.)
+console.log("Content of file1.js");
+console.log("Updated content of file1.js");
+console.log("Feature content in file1.js");

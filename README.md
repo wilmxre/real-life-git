@@ -16,5 +16,8 @@ Welcome to the **Real-Life-Git Katas** repository! This repository is designed t
 
 * [Branch Commit Recovery](../../tree/branch-commit-recovery)
    - Learn how to recover commits from a branch and integrate them back into your repository's mainline. Explore strategies to handle accidental branch deletions or lost commits.
+ 
+* [Finding a bug with bisect](../../tree/bisect)
+   - Learn how to find a bug with git bisect.
 
 Feel free to explore these branches, follow the scenarios, and enhance your Git skills by navigating to the respective kata links provided above. Remember to approach each exercise with care and understanding to maximize your learning experience. Happy branching and committing!
